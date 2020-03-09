@@ -1,21 +1,32 @@
-import React from 'react'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { useEffect, useState, useCallback } from 'react'
+import Header from '../components/Header'
+import Main from '../components/Main'
+import Footer from '../components/Footer'
+import { en, hu, config } from '../data/data'
 
 const Index = () => {
-    const router = useRouter()
-    React.useEffect(() => {
+    const [prefLang, setPrefLang] = useState('en')
+    useEffect(() => {
         const navLang = navigator.languages
             ? navigator.languages[0]
             : navigator.language || navigator.userLanguage || 'en'
-        const prefLang = navLang.substring(0, 2)
-        router.replace(`/${prefLang}`, '/')
+        setPrefLang(navLang.substring(0, 2))
     }, [])
 
+    const toggleLang = () => {
+        const newLang = prefLang === 'hu' ? 'en' : 'hu'
+        setPrefLang(newLang)
+    }
     return (
-        <Head>
-            <meta name="robots" content="noindex, nofollow" />
-        </Head>
+        <React.Fragment>
+            <Header title={config.title} description={config.description} />
+            <Main lang={prefLang} text={prefLang === 'hu' ? hu : en} />
+            <Footer
+                withLove={prefLang === 'hu' ? hu.withLove : en.withLove}
+                lang={prefLang}
+                setPrefLang={toggleLang}
+            />
+        </React.Fragment>
     )
 }
 

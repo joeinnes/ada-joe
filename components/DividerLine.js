@@ -1,3 +1,5 @@
+import { config } from "../data/data"
+
 const DividerLine = props => {
     return (
         <React.Fragment>
@@ -15,12 +17,12 @@ const DividerLine = props => {
             <style jsx>{`
                 hr {
                     border: none;
-                    border-top: 4px dotted ${props.color || '#000'};
+                    border-top: 4px dotted ${props.color || config.darkColor};
                 }
                 .line {
                     border: none;
                     border-bottom-width: 1px;
-                    border-bottom: 1px solid ${props.color || '#000'};
+                    border-bottom: 1px solid ${props.color || config.darkColor};
                 }
                 .cols {
                     display: flex;
@@ -34,7 +36,7 @@ const DividerLine = props => {
                     padding: 0 1rem 0 1rem;
                 }
                 .center-text {
-                    font-family: ${props.font};
+                    font-family: ${props.font || config.defaultFont};
                 }
             `}</style>
         </React.Fragment>

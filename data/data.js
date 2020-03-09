@@ -63,4 +63,11 @@ const hu = {
         withLove: 'Szeretettel Ada & Joe ❤️'
     }
 
-export { en, hu }
+const config = {
+    lightColor: '#EFD0CA',
+    darkColor: '#382016',
+    defaultFont: 'Darker Grotesque',
+    title: 'Ada & Joe',
+    description: 'Ada & Joe'
+}
+export { en, hu, config }
