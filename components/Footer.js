@@ -1,24 +1,25 @@
 import LangChange from './LangChange'
+import { config } from '../data/data'
 
 const Footer = (props) => {
     return (
         <React.Fragment>
             <footer>
                 <span>
-                    <LangChange lang={props.lang} setLang={props.setLang} />
+                    <LangChange lang={props.lang} setPrefLang={props.setPrefLang} />
                 </span>
                 <span></span>
                 <span className="float-right">{props.withLove}</span>
             </footer>
             <style jsx>{`
             footer {
-                background-color: ${props.bgColor || '#fff'};
-                color: ${props.color || '#000'};
-                margin-top: 10px;
+                background-color: ${config.lightColor || '#fff'};
+                color: ${config.darkColor || '#000'};
                 text-shadow: none;
                 display: flex;
                 justify-content: space-between;
-                font-family: ${props.font}
+                font-family: ${config.defaultFont};
+                font-size: 1.5rem;
             }
             
             `}</style>

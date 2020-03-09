@@ -1,50 +1,32 @@
-import React from 'react'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { useEffect, useState, useCallback } from 'react'
+import Header from '../components/Header'
+import Main from '../components/Main'
+import Footer from '../components/Footer'
+import { en, hu, config } from '../data/data'
 
 const Index = () => {
-    const router = useRouter()
-    React.useEffect(() => {
+    const [prefLang, setPrefLang] = useState('en')
+    useEffect(() => {
         const navLang = navigator.languages
             ? navigator.languages[0]
             : navigator.language || navigator.userLanguage || 'en'
-        const prefLang = navLang.substring(0, 2)
-        router.replace(`/${prefLang}`, '/')
+        setPrefLang(navLang.substring(0, 2))
     }, [])
 
+    const toggleLang = () => {
+        const newLang = prefLang === 'hu' ? 'en' : 'hu'
+        setPrefLang(newLang)
+    }
     return (
-        <Head>
-            <meta name="robots" content="noindex, nofollow" />
-            <title>Ada & Joe</title>
-            <meta charset="utf-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1"
+        <React.Fragment>
+            <Header title={config.title} description={config.description} />
+            <Main lang={prefLang} text={prefLang === 'hu' ? hu : en} />
+            <Footer
+                withLove={prefLang === 'hu' ? hu.withLove : en.withLove}
+                lang={prefLang}
+                setPrefLang={toggleLang}
             />
-
-            <link
-                rel="apple-touch-icon"
-                sizes="180x180"
-                href="apple-touch-icon.png"
-            />
-            <link
-                rel="icon"
-                type="image/png"
-                sizes="32x32"
-                href="favicon-32x32.png"
-            />
-            <link
-                rel="icon"
-                type="image/png"
-                sizes="16x16"
-                href="favicon-16x16.png"
-            />
-            <link rel="manifest" href="/site.webmanifest" />
-            <link rel="preconnect" href="http://fonts.gstatic.com/" />
-            <link rel="preconnect" href="http://fonts.googleapis.com" />
-            <meta name="Description" content="Ada & Joe" />
-        </Head>
+        </React.Fragment>
     )
 }
 
