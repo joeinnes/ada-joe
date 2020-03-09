@@ -52,7 +52,7 @@ const Header = (props) => {
             <link rel="manifest" href="/site.webmanifest" />
             <link rel="preconnect" href="http://fonts.gstatic.com/" />
             <link rel="preconnect" href="http://fonts.googleapis.com" />
-            <meta name="Description" content="{props.description}" />
+            <meta name="Description" content={props.description} />
         </Head>
     )
 }
