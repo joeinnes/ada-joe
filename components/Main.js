@@ -3,8 +3,8 @@ import Head from 'next/head'
 import SaveTheDate from './SaveTheDate'
 import Lights from './Lights'
 import Card from './Card'
-import Footer from './Footer'
 import { useRouter } from 'next/router'
+import { config } from '../data/data'
 
 const Main = props => {
     const router = useRouter()
@@ -13,10 +13,10 @@ const Main = props => {
         <div>
             <main>
                 <Lights />
-                <SaveTheDate font="Meddon" color="#EFD0CA">
+                <SaveTheDate font="Meddon" color={config.lightColor}>
                     {text.saveTheDate}
                 </SaveTheDate>
-                <Card lines={text.card} color="#382016" />
+                <Card lines={text.card} color={config.darkColor} />
             </main>
             <style jsx global>{`
                 body {
