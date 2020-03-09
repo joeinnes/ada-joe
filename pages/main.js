@@ -10,7 +10,6 @@ const Main = props => {
     const router = useRouter()
     const text = props.text
     const fontsToImport = [
-        'Handlee',
         'Dancing Script',
         'Leckerli One',
         'Meddon',
@@ -92,6 +91,7 @@ const Main = props => {
                     min-width: 100vw;
                     max-width: 100vw;
                     box-shadow: 0 0 5vw 5vw rgba(0, 0, 0, 0.4) inset;
+                    padding-bottom: 10vh;
                 }
                 * {
                     text-align: justify;

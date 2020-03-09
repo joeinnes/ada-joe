@@ -14,11 +14,11 @@ const Footer = (props) => {
             footer {
                 background-color: ${props.bgColor || '#fff'};
                 color: ${props.color || '#000'};
-                margin-top: 10px;
                 text-shadow: none;
                 display: flex;
                 justify-content: space-between;
-                font-family: ${props.font}
+                font-family: ${props.font};
+                font-size: 1.5rem;
             }
             
             `}</style>
