@@ -6,7 +6,7 @@ import Card from '../components/Card'
 import Footer from '../components/Footer'
 import { useRouter } from 'next/router'
 
-const Main = (props) => {
+const Main = props => {
     const router = useRouter()
     const text = props.text
     const fontsToImport = [
@@ -23,16 +23,45 @@ const Main = (props) => {
 
     useEffect(() => {
         async function fontsReady() {
-            document.fonts.onloadingdone = function (fontFaceSetEvent) {
+            document.fonts.onloadingdone = function(fontFaceSetEvent) {
                 window.dispatchEvent(new Event('resize'))
-             }
+            }
         }
         fontsReady()
-      }, [])
+    }, [])
     return text ? (
         <div>
             <Head>
                 <link href={fontLink} rel="stylesheet" />
+                <title>Ada & Joe</title>
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+
+                <link
+                    rel="apple-touch-icon"
+                    sizes="180x180"
+                    href="apple-touch-icon.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href="favicon-32x32.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href="favicon-16x16.png"
+                />
+                <link rel="manifest" href="/site.webmanifest" />
+                <link rel="preconnect" href="http://fonts.gstatic.com/" />
+                <link rel="preconnect" href="http://fonts.googleapis.com" />
+                <meta name="Description" content="Ada & Joe" />
             </Head>
             <main>
                 <Lights />
@@ -45,7 +74,7 @@ const Main = (props) => {
                 withLove={text.withLove}
                 bgColor="#EFD0CA"
                 color="#382016"
-                font="Darker Grotesque" 
+                font="Darker Grotesque"
                 lang={props.lang}
             />
             <style jsx global>{`
@@ -71,7 +100,9 @@ const Main = (props) => {
                 }
             `}</style>
         </div>
-    ) : ''
+    ) : (
+        ''
+    )
 }
 
 export default Main
