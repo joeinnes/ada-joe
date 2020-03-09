@@ -14,15 +14,13 @@ const Footer = (props) => {
             footer {
                 background-color: ${props.bgColor || '#fff'};
                 color: ${props.color || '#000'};
-                margin-top: auto;
+                margin-top: 10px;
                 text-shadow: none;
                 display: flex;
                 justify-content: space-between;
                 font-family: ${props.font}
             }
-            footer a {
-                text-decoration: none;
-              }
+            
             `}</style>
         </React.Fragment>
     )

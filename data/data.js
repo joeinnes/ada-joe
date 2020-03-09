@@ -1,5 +1,4 @@
-const text = {
-    en: {
+const en = {
         card: [
             {
                 text: 'FOR THE WEDDING OF',
@@ -28,15 +27,15 @@ const text = {
             },
             {
                 text:
-                    'WHERE SHOULD WE SEND YOUR INVITATION? LET US KNOW AT <a href="mailto:wedding@ada-joe.com">WEDDING@ADA-JOE.COM</a>!',
+                    'WHERE SHOULD WE SEND YOUR INVITATION? LET US KNOW AT <a style="text-decoration: none; color: #382016" href="mailto:wedding@ada-joe.com">WEDDING@ADA-JOE.COM</a>!',
                 font: 'Darker Grotesque',
-                multi: true,
+                multi: true
             },
         ],
         saveTheDate: 'save the date',
         withLove: 'With ❤️ from Ada & Joe'
-    },
-    hu: {
+    }
+const hu = {
         card: [
             {
                 text: 'Ada & Joe',
@@ -55,15 +54,13 @@ const text = {
                 font: 'Leckerli One',
             },
             {
-                text:
-                    'MILYEN LAKCÍMRE KÜLDHETJÜK A MEGHÍVÓT? ÍRD MEG NEKÜNK AZ <a href="mailto:eskuvo@ada-joe.com">ESKUVO@ADA-JOE.COM</a> CÍMRE!',
+                text: 'MILYEN LAKCÍMRE KÜLDHETJÜK A MEGHÍVÓT? ÍRD MEG NEKÜNK AZ <a style="text-decoration: none; color: #382016" href="mailto:eskuvo@ada-joe.com">ESKUVO@ADA-JOE.COM</a> CÍMRE!',
                 font: 'Darker Grotesque',
-                multi: true,
-            },
+                multi: true
+            }
         ],
         saveTheDate: 'Írd be a naptárba',
         withLove: 'Szeretettel Ada & Joe ❤️'
     }
-}
 
-export default text
+export { en, hu }
