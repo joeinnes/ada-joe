@@ -1,8 +1,9 @@
 import { useEffect, useState, useCallback } from 'react'
 import Header from '../components/Header'
-import Main from '../components/Main'
+import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 import { en, hu, config } from '../data/data'
+import FullScreen from '../components/FullScreen'
 
 const Index = () => {
     const [prefLang, setPrefLang] = useState('en')
@@ -20,7 +21,13 @@ const Index = () => {
     return (
         <React.Fragment>
             <Header title={config.title} description={config.description} />
-            <Main lang={prefLang} text={prefLang === 'hu' ? hu : en} />
+            <FullScreen text={config.title} font="Dancing Script" />
+            <Menu>
+                <span>Test 1</span>
+                <span>Test 2</span>
+                <span>Test 3</span>
+                <span>Test 4</span>
+            </Menu>
             <Footer
                 withLove={prefLang === 'hu' ? hu.withLove : en.withLove}
                 lang={prefLang}
@@ -36,18 +43,6 @@ const Index = () => {
                     -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
                     margin: 0;
-                }
-                main {
-                    min-height: 100vh;
-                    min-width: 100vw;
-                    max-width: 100vw;
-                    box-shadow: 0 0 5vw 5vw rgba(0, 0, 0, 0.4) inset;
-                    padding-bottom: 10vh;
-                }
-                * {
-                    text-align: justify;
-                    text-align-last: center;
-                    margin: auto;
                 }
             `}</style>
         </React.Fragment>
